@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+/* HEADER */
+.header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav {
+    margin-top: 10px;
+}
+
+.nav a {
+    margin: 0 12px;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* HERO SECTION */
+.hero {
+    padding: 40px;
+    text-align: center;
+    background: white;
+}
+
+.hero h2 {
+    font-size: 32px;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    padding: 20px;
+    background: white;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+/* ===========================
+   RESPONSIVE FOR MOBILE
+   =========================== */
+@media (max-width: 768px) {
+    .nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr; /* all cards stack */
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+}
+
+/* ===========================
+   RESPONSIVE FOR TABLETS
+   =========================== */
+@media (max-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

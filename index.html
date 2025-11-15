@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OptifyUp - Social Media Agency</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .glow-card {
+            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.1), 0 0 0 1px rgba(30, 58, 138, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .glow-card:hover {
+            box-shadow: 0 8px 30px rgba(30, 58, 138, 0.15), 0 0 0 1px rgba(30, 58, 138, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .orange-glow {
+            box-shadow: 0 4px 20px rgba(251, 146, 60, 0.2);
+        }
+        
+        .blue-glow {
+            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.2);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
+        }
+        
+        .process-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        
+        .portfolio-item {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(30, 58, 138, 0.15);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .calendar-day:hover {
+            background: #f1f5f9;
+        }
+        
+        .calendar-day.available {
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        .calendar-day.available:hover {
+            background: #3b82f6;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="font-sans"><!-- Hero Section -->
+  <section class="hero-gradient min-h-full py-20 px-6">
+   <div class="max-w-6xl mx-auto text-center"><!-- OptifyUp Logo -->
+    <div class="mb-12">
+     <div class="inline-flex items-center space-x-3">
+      <div class="w-12 h-12 bg-gradient-to-br from-blue-900 to-blue-700 rounded-xl flex items-center justify-center">
+       <svg class="w-7 h-7 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" />
+       </svg>
+      </div>
+      <img src="PNJ.png" alt="OptifyUp Logo" class="w-25 h-16">
+
+
+     </div>
+    </div><!-- Headlines -->
+    <h1 id="main-headline" class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">We Grow Your Social Media,<br>
+     So You Don't Have To.</h1>
+    <p id="subheadline-text" class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">Content creation, editing, strategy, and full social media management.</p><!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center"><button id="primary-cta" class="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg blue-glow hover:from-blue-800 hover:to-blue-600 transition-all duration-300"> Book a Free Call </button> <button id="secondary-cta" class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg border-2 border-gray-200 hover:border-orange-400 hover:text-orange-600 transition-all duration-300"> View Work </button>
+    </div><!-- Abstract Shapes -->
+    <div class="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full opacity-20 blur-xl"></div>
+    <div class="absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full opacity-15 blur-2xl"></div>
+   </div>
+  </section><!-- Our Process Section -->
+  <section class="py-20 px-6 bg-white">
+   <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Our Process</h2>
+    <p class="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">Streamlined workflows for personal brands and niche pages</p><!-- Personal Brand Workflow -->
+    <div class="mb-16">
+     <h3 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Personal Brand Workflow</h3>
+<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Research</h4>
+       <p class="text-sm text-gray-600">Trend analysis, competitor breakdown</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Scriptwriting</h4>
+       <p class="text-sm text-gray-600">Hooks, ideas, content planning</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Recording</h4>
+       <p class="text-sm text-gray-600">Shoot raw content</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M20 4l-2 14.5-6-2.11-4 2.11 1-7L20 4z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Editing</h4>
+       <p class="text-sm text-gray-600">Professional cuts, subtitles, visuals</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Posting + Reporting</h4>
+       <p class="text-sm text-gray-600">Scheduling + weekly insights</p>
+      </div>
+     </div>
+    </div><!-- Niche Page Workflow -->
+    <div>
+     <h3 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Niche Page Workflow</h3>
+<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Trending Research</h4>
+       <p class="text-sm text-gray-600">Find viral content patterns</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 16H9V7h9v14z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Replicate What Works</h4>
+       <p class="text-sm text-gray-600">Adapt successful formats</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11.5-6L8 13h2.5l1.5-2 2.5 3.5h7L18 10.5 15.5 14 13 10.5z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Gather Assets</h4>
+       <p class="text-sm text-gray-600">Collect and record content</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M20 4l-2 14.5-6-2.11-4 2.11 1-7L20 4z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Editing</h4>
+       <p class="text-sm text-gray-600">Polish and optimize</p>
+      </div>
+      <div class="glow-card bg-white p-6 rounded-2xl text-center">
+       <div class="process-icon">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+        </svg>
+       </div>
+       <h4 class="font-semibold text-gray-900 mb-2">Growth Reports</h4>
+       <p class="text-sm text-gray-600">Track performance metrics</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Results Section -->
+  <section class="py-20 px-6 gradient-bg">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Proven Results</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><!-- Before -->
+     <div class="text-center">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-6">Before</h3>
+      <div class="glow-card bg-white p-8 rounded-2xl">
+       <div class="bg-gray-100 h-48 rounded-xl flex items-center justify-center mb-6">
+        <div class="text-center">
+         <div class="text-3xl font-bold text-gray-400 mb-2">
+          2.1K
+         </div>
+         <div class="text-sm text-gray-500">
+          Profile Visits
+         </div>
+        </div>
+       </div>
+       <div class="grid grid-cols-3 gap-4 text-center">
+        <div>
+         <div class="text-lg font-semibold text-gray-600">
+          1.2K
+         </div>
+         <div class="text-xs text-gray-500">
+          Engagement
+         </div>
+        </div>
+        <div>
+         <div class="text-lg font-semibold text-gray-600">
+          850
+         </div>
+         <div class="text-xs text-gray-500">
+          Followers
+         </div>
+        </div>
+        <div>
+         <div class="text-lg font-semibold text-gray-600">
+          2.1%
+         </div>
+         <div class="text-xs text-gray-500">
+          Rate
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- After -->
+     <div class="text-center">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-6">After</h3>
+      <div class="glow-card bg-white p-8 rounded-2xl">
+       <div class="bg-gradient-to-br from-blue-50 to-orange-50 h-48 rounded-xl flex items-center justify-center mb-6">
+        <div class="text-center">
+         <div class="text-3xl font-bold text-blue-900 mb-2">
+          4.0K
+         </div>
+         <div class="text-sm text-gray-600">
+          Profile Visits
+         </div>
+        </div>
+       </div>
+       <div class="grid grid-cols-3 gap-4 text-center">
+        <div>
+         <div class="text-lg font-semibold text-blue-900">
+          3.6K
+         </div>
+         <div class="text-xs text-gray-500">
+          Engagement
+         </div>
+        </div>
+        <div>
+         <div class="text-lg font-semibold text-blue-900">
+          1.3K
+         </div>
+         <div class="text-xs text-gray-500">
+          Followers
+         </div>
+        </div>
+        <div>
+         <div class="text-lg font-semibold text-blue-900">
+          6.8%
+         </div>
+         <div class="text-xs text-gray-500">
+          Rate
+         </div>
+        </div>
+       </div>
+      </div><!-- Stats Badges -->
+      <div class="flex flex-wrap justify-center gap-3 mt-6"><span class="stat-badge text-white px-4 py-2 rounded-full text-sm font-semibold"> +92% Profile Visits </span> <span class="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-4 py-2 rounded-full text-sm font-semibold"> +3× Engagement </span> <span class="stat-badge text-white px-4 py-2 rounded-full text-sm font-semibold"> +58% Followers Growth </span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Portfolio Section -->
+  <section class="py-20 px-6 bg-white">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Portfolio</h2>
+    <p class="text-xl text-gray-600 text-center mb-16">Recent work and creative samples</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Video Editing Sample -->
+     <div class="portfolio-item glow-card">
+      <div class="bg-gradient-to-br from-blue-900 to-blue-700 h-48 flex items-center justify-center">
+       <svg class="w-16 h-16 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+       </svg>
+      </div>
+      <div class="p-6">
+       <h3 class="font-semibold text-gray-900 mb-2">Video Editing</h3>
+       <p class="text-sm text-gray-600">Professional cuts, transitions, and effects</p>
+      </div>
+     </div><!-- Graphics Sample -->
+     <div class="portfolio-item glow-card">
+      <div class="bg-gradient-to-br from-orange-400 to-orange-500 h-48 flex items-center justify-center">
+       <svg class="w-16 h-16 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+       </svg>
+      </div>
+      <div class="p-6">
+       <h3 class="font-semibold text-gray-900 mb-2">Graphics Design</h3>
+       <p class="text-sm text-gray-600">Custom visuals and brand assets</p>
+      </div>
+     </div><!-- Strategy Sample -->
+     <div class="portfolio-item glow-card">
+      <div class="bg-gradient-to-br from-gray-700 to-gray-800 h-48 flex items-center justify-center">
+       <svg class="w-16 h-16 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+       </svg>
+      </div>
+      <div class="p-6">
+       <h3 class="font-semibold text-gray-900 mb-2">Strategy &amp; Analytics</h3>
+       <p class="text-sm text-gray-600">Data-driven growth strategies</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- How I Work Section -->
+  <section class="py-20 px-6 gradient-bg">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">How I Work</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="glow-card bg-white p-6 rounded-2xl text-center">
+      <div class="bg-gray-100 h-32 rounded-xl mb-4 flex items-center justify-center">
+       <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewbox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 2h6v2H9V4z" />
+       </svg>
+      </div>
+      <h3 class="font-semibold text-gray-900 mb-2">Research Sheet</h3>
+      <p class="text-sm text-gray-600">Comprehensive trend analysis</p>
+     </div>
+     <div class="glow-card bg-white p-6 rounded-2xl text-center">
+      <div class="bg-gray-100 h-32 rounded-xl mb-4 flex items-center justify-center">
+       <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewbox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+       </svg>
+      </div>
+      <h3 class="font-semibold text-gray-900 mb-2">Scriptwriting Sheet</h3>
+      <p class="text-sm text-gray-600">Content planning and hooks</p>
+     </div>
+     <div class="glow-card bg-white p-6 rounded-2xl text-center">
+      <div class="bg-gray-100 h-32 rounded-xl mb-4 flex items-center justify-center">
+       <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewbox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+       </svg>
+      </div>
+      <h3 class="font-semibold text-gray-900 mb-2">Editing Timeline</h3>
+      <p class="text-sm text-gray-600">Professional video production</p>
+     </div>
+     <div class="glow-card bg-white p-6 rounded-2xl text-center">
+      <div class="bg-gray-100 h-32 rounded-xl mb-4 flex items-center justify-center">
+       <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewbox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+       </svg>
+      </div>
+      <h3 class="font-semibold text-gray-900 mb-2">Monthly Report</h3>
+      <p class="text-sm text-gray-600">Performance insights</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section class="py-20 px-6 bg-white">
+   <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><!-- Photo -->
+     <div class="text-center lg:text-left">
+      <div class="w-64 h-64 mx-auto lg:mx-0 bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl flex items-center justify-center glow-card">
+       <svg class="w-24 h-24 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+       </svg>
+      </div>
+     </div><!-- Content -->
+     <div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">About</h2>
+      <p id="about-description" class="text-xl text-gray-600 mb-8 leading-relaxed">Hi, I'm Hassan — Social Media Manager &amp; Content Strategist. I help brands grow using smart content, modern editing, and data-driven strategies.</p>
+      <div class="flex flex-col sm:flex-row gap-4"><button class="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-800 hover:to-blue-600 transition-all duration-300"> View Profile </button> <button class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold border-2 border-gray-200 hover:border-orange-400 hover:text-orange-600 transition-all duration-300"> Download Portfolio </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Book a Call Section -->
+  <section class="py-20 px-6 gradient-bg">
+   <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-gray-900 mb-6">Book Your Strategy Call</h2>
+    <p class="text-xl text-gray-600 mb-12">Let's discuss how we can grow your social media presence</p>
+    <div class="glow-card bg-white p-8 rounded-2xl max-w-md mx-auto">
+     <h3 class="text-xl font-semibold text-gray-900 mb-4">Available Times</h3><!-- Simple Calendar -->
+     <div class="calendar-grid">
+      <div class="text-xs font-semibold text-gray-500 text-center">
+       Mon
+      </div>
+      <div class="text-xs font-semibold text-gray-500 text-center">
+       Tue
+      </div>
+      <div class="text-xs font-semibold text-gray-500 text-center">
+       Wed
+      </div>
+      <div class="text-xs font-semibold text-gray-500 text-center">
+       Thu
+      </div>
+      <div class="text-xs font-semibold text-gray-500 text-center">
+       Fri
+      </div>
+      <div class="text-xs font-semibold text-gray-500 text-center">
+       Sat
+      </div>
+      <div class="text-xs font-semibold text-gray-500 text-center">
+       Sun
+      </div>
+      <div class="calendar-day">
+       1
+      </div>
+      <div class="calendar-day">
+       2
+      </div>
+      <div class="calendar-day available">
+       3
+      </div>
+      <div class="calendar-day">
+       4
+      </div>
+      <div class="calendar-day available">
+       5
+      </div>
+      <div class="calendar-day">
+       6
+      </div>
+      <div class="calendar-day">
+       7
+      </div>
+      <div class="calendar-day">
+       8
+      </div>
+      <div class="calendar-day available">
+       9
+      </div>
+      <div class="calendar-day available">
+       10
+      </div>
+      <div class="calendar-day">
+       11
+      </div>
+      <div class="calendar-day available">
+       12
+      </div>
+      <div class="calendar-day">
+       13
+      </div>
+      <div class="calendar-day">
+       14
+      </div>
+     </div><button class="w-full bg-gradient-to-r from-blue-900 to-blue-700 text-white py-3 rounded-full font-semibold mt-6 blue-glow hover:from-blue-800 hover:to-blue-600 transition-all duration-300"> Book Your Strategy Call </button>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="py-12 px-6 bg-white border-t border-gray-100">
+   <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center"><!-- Logo -->
+     <div class="flex items-center space-x-3 mb-6 md:mb-0">
+      <div class="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg flex items-center justify-center">
+       <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" />
+       </svg>
+      </div><img src="PNJ.png" alt="OptifyUp Logo" class="w-18 h-9">
+
+     </div><!-- Contact -->
+     <div class="text-center md:text-left mb-6 md:mb-0">
+      <p id="footer-email" class="text-gray-600">hello@optifyup.com</p>
+     </div><!-- Links -->
+     <div class="flex space-x-6 text-sm text-gray-600"><a href="#" class="hover:text-blue-900 transition-colors">Home</a> <a href="#" class="hover:text-blue-900 transition-colors">Portfolio</a> <a href="#" class="hover:text-blue-900 transition-colors">Services</a> <a href="#" class="hover:text-blue-900 transition-colors">Contact</a>
+     </div>
+    </div>
+    <div class="text-center text-sm text-gray-500 mt-8 pt-8 border-t border-gray-100">
+     Copyright 2025 OptifyUp. All rights reserved.
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Default configuration
+        const defaultConfig = {
+            main_headline: "We Grow Your Social Media,\nSo You Don't Have To.",
+            subheadline: "Content creation, editing, strategy, and full social media management.",
+            cta_primary: "Book a Free Call",
+            cta_secondary: "View Work",
+            about_text: "Hi, I'm Hassan — Social Media Manager & Content Strategist. I help brands grow using smart content, modern editing, and data-driven strategies.",
+            contact_email: "hello@optifyup.com",
+            background_color: "#f8fafc",
+            surface_color: "#ffffff",
+            text_color: "#111827",
+            primary_action_color: "#1e3a8a",
+            secondary_action_color: "#fb923c",
+            font_family: "Inter",
+            font_size: 16
+        };
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange: async (config) => {
+                    // Update text content
+                    const mainHeadline = document.getElementById('main-headline');
+                    if (mainHeadline) {
+                        mainHeadline.innerHTML = (config.main_headline || defaultConfig.main_headline).replace(/\n/g, '<br>');
+                    }
+                    
+                    const subheadlineText = document.getElementById('subheadline-text');
+                    if (subheadlineText) {
+                        subheadlineText.textContent = config.subheadline || defaultConfig.subheadline;
+                    }
+                    
+                    const primaryCta = document.getElementById('primary-cta');
+                    if (primaryCta) {
+                        primaryCta.textContent = config.cta_primary || defaultConfig.cta_primary;
+                    }
+                    
+                    const secondaryCta = document.getElementById('secondary-cta');
+                    if (secondaryCta) {
+                        secondaryCta.textContent = config.cta_secondary || defaultConfig.cta_secondary;
+                    }
+                    
+                    const aboutDescription = document.getElementById('about-description');
+                    if (aboutDescription) {
+                        aboutDescription.textContent = config.about_text || defaultConfig.about_text;
+                    }
+                    
+                    const footerEmail = document.getElementById('footer-email');
+                    if (footerEmail) {
+                        footerEmail.textContent = config.contact_email || defaultConfig.contact_email;
+                    }
+
+                    // Update colors
+                    const backgroundColor = config.background_color || defaultConfig.background_color;
+                    const surfaceColor = config.surface_color || defaultConfig.surface_color;
+                    const textColor = config.text_color || defaultConfig.text_color;
+                    const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+                    const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+                    // Apply background color
+                    document.body.style.backgroundColor = backgroundColor;
+                    
+                    // Apply surface color to cards and white sections
+                    const surfaces = document.querySelectorAll('.glow-card, .portfolio-item, section.bg-white');
+                    surfaces.forEach(surface => {
+                        surface.style.backgroundColor = surfaceColor;
+                    });
+
+                    // Apply text color
+                    const textElements = document.querySelectorAll('h1, h2, h3, h4, p, span, div');
+                    textElements.forEach(element => {
+                        if (!element.classList.contains('text-white')) {
+                            element.style.color = textColor;
+                        }
+                    });
+
+                    // Apply primary action color to buttons and primary elements
+                    const primaryElements = document.querySelectorAll('#primary-cta, .stat-badge, .process-icon');
+                    primaryElements.forEach(element => {
+                        element.style.background = `linear-gradient(135deg, ${primaryActionColor} 0%, ${primaryActionColor}dd 100%)`;
+                    });
+
+                    // Apply secondary action color to secondary buttons and accents
+                    const secondaryElements = document.querySelectorAll('.orange-glow');
+                    secondaryElements.forEach(element => {
+                        element.style.background = `linear-gradient(135deg, ${secondaryActionColor} 0%, ${secondaryActionColor}dd 100%)`;
+                    });
+
+                    // Update font
+                    const customFont = config.font_family || defaultConfig.font_family;
+                    const baseFontStack = 'system-ui, -apple-system, sans-serif';
+                    document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+                    // Update font sizes
+                    const baseSize = config.font_size || defaultConfig.font_size;
+                    document.documentElement.style.fontSize = `${baseSize}px`;
+                    
+                    // Scale headings proportionally
+                    const h1Elements = document.querySelectorAll('h1');
+                    h1Elements.forEach(h1 => {
+                        h1.style.fontSize = `${baseSize * 3.5}px`;
+                    });
+                    
+                    const h2Elements = document.querySelectorAll('h2');
+                    h2Elements.forEach(h2 => {
+                        h2.style.fontSize = `${baseSize * 2.25}px`;
+                    });
+                    
+                    const h3Elements = document.querySelectorAll('h3');
+                    h3Elements.forEach(h3 => {
+                        h3.style.fontSize = `${baseSize * 1.5}px`;
+                    });
+                    
+                    const pElements = document.querySelectorAll('p');
+                    pElements.forEach(p => {
+                        p.style.fontSize = `${baseSize * 1.25}px`;
+                    });
+                },
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => {
+                                config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => {
+                                config.secondary_action_color = value;
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["main_headline", config.main_headline || defaultConfig.main_headline],
+                    ["subheadline", config.subheadline || defaultConfig.subheadline],
+                    ["cta_primary", config.cta_primary || defaultConfig.cta_primary],
+                    ["cta_secondary", config.cta_secondary || defaultConfig.cta_secondary],
+                    ["about_text", config.about_text || defaultConfig.about_text],
+                    ["contact_email", config.contact_email || defaultConfig.contact_email]
+                ])
+            });
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add calendar interaction
+        document.querySelectorAll('.calendar-day.available').forEach(day => {
+            day.addEventListener('click', function() {
+                // Remove previous selection
+                document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                // Add selection to clicked day
+                this.classList.add('selected');
+                this.style.background = '#fb923c';
+            });
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99ef094462ffd055',t:'MTc2MzIxMjcyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
