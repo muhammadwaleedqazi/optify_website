@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptifyUp - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+            color: #4b5563;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card Styles */
+        .opt-card {
+            border-radius: 24px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+        }
+        .opt-card-light {
+            border-radius: 24px;
+            background-color: #f8fafc;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        }
+        .opt-video-frame {
+            border-radius: 24px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            background: white;
+        }
+        .opt-grid-gap { gap: 1.75rem; }
+        
+        /* Play Icon Pulse */
+        .play-icon { transition: transform 0.3s ease; }
+        .video-placeholder:hover .play-icon { transform: scale(1.1); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="w-full sticky top-0 z-20 backdrop-blur-md bg-white/80 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-900 shadow-lg group-hover:scale-105 transition-transform">
+                    <span class="font-bold text-xs text-white">OU</span>
+                </div>
+                <div class="leading-tight hidden sm:block">
+                    <p class="text-xs uppercase tracking-[0.22em] text-orange-500 font-bold">OptifyUp</p>
+                    <p class="text-[11px] text-gray-600">Back to Home</p>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-xs text-gray-700 font-medium">
+                <a href="#section-laxdrip" class="hover:text-blue-900 transition-colors">Laxdrip</a>
+                <a href="#section-rating" class="hover:text-blue-900 transition-colors">RatingKitchen</a>
+                <a href="#section-battle" class="hover:text-blue-900 transition-colors">BattleLax</a>
+                <a href="index.html#Calender" class="px-4 py-2 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition-all">Book Call</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-5 pt-10 pb-16 flex flex-col gap-16 md:gap-20">
+        
+        <section class="flex flex-col items-center text-center gap-5 reveal">
+            <div class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 px-4 py-1.5 shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-white"></span> 
+                <span class="text-[11px] uppercase tracking-[0.24em] text-white font-semibold">Client Showcase</span>
+            </div>
+            <div class="space-y-3">
+                <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Recent work samples & strategies</h1>
+                <p class="text-sm md:text-base text-gray-600 max-w-xl mx-auto">Real Clients. Real Results.</p>
+            </div>
+        </section>
+
+        <section id="section-laxdrip" class="reveal">
+            <div class="flex flex-col gap-3 mb-6 border-b border-gray-200 pb-4">
+                <p class="text-[11px] uppercase tracking-[0.28em] text-orange-500 font-bold">Case Study 01</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Laxdripofficial</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-[1.6fr,1fr] gap-6">
+                <article class="opt-card-light p-5 flex flex-col gap-4">
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="opt-video-frame p-2">
+                            <div class="w-full rounded-[20px] bg-white border border-dashed border-slate-300 relative flex items-center justify-center video-placeholder aspect-[9/16]">
+                                <div class="w-10 h-10 rounded-full border-2 border-blue-500 flex items-center justify-center play-icon">
+                                    <div class="ml-0.5 w-0 h-0 border-l-[10px] border-l-blue-600 border-y-[6px] border-y-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="opt-video-frame p-2">
+                            <div class="w-full rounded-[20px] bg-white border border-dashed border-slate-300 relative flex items-center justify-center video-placeholder aspect-[9/16]">
+                                <div class="w-10 h-10 rounded-full border-2 border-blue-500 flex items-center justify-center play-icon">
+                                    <div class="ml-0.5 w-0 h-0 border-l-[10px] border-l-blue-600 border-y-[6px] border-y-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="opt-video-frame p-2">
+                            <div class="w-full rounded-[20px] bg-white border border-dashed border-slate-300 relative flex items-center justify-center video-placeholder aspect-[9/16]">
+                                <div class="w-10 h-10 rounded-full border-2 border-blue-500 flex items-center justify-center play-icon">
+                                    <div class="ml-0.5 w-0 h-0 border-l-[10px] border-l-blue-600 border-y-[6px] border-y-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="flex flex-col gap-4">
+                    <article class="opt-card p-6 flex flex-col gap-4">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider">Growth Metrics</h3>
+                        <dl class="text-xs text-gray-600 space-y-3">
+                            <div class="flex justify-between border-b border-gray-50 pb-2">
+                                <dt>Views</dt>
+                                <dd class="font-bold text-blue-900">+2.4M</dd>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-50 pb-2">
+                                <dt>Followers</dt>
+                                <dd class="font-bold text-blue-900">+15K</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt>Channel</dt>
+                                <dd class="font-bold text-gray-900">Instagram / TikTok</dd>
+                            </div>
+                        </dl>
+                    </article>
+                    <article class="opt-card p-6 flex flex-col gap-3 bg-blue-50 border border-blue-100">
+                        <h3 class="text-sm font-bold text-blue-900">Strategy</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            We focused on high-energy edits and trending audio to capture the lacrosse niche. By analyzing competitor data, we replicated viral hooks which skyrocketed engagement within the first 3 seconds.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-rating" class="reveal">
+            <div class="flex flex-col gap-3 mb-6 border-b border-gray-200 pb-4">
+                <p class="text-[11px] uppercase tracking-[0.28em] text-orange-500 font-bold">Case Study 02</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">RatingKitchenCabinets</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-[1.6fr,1fr] gap-6">
+                <article class="opt-card-light p-5 flex flex-col gap-4">
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="opt-video-frame p-2">
+                            <div class="w-full rounded-[20px] bg-white border border-dashed border-slate-300 relative flex items-center justify-center video-placeholder aspect-[9/16]">
+                                <div class="w-10 h-10 rounded-full border-2 border-blue-500 flex items-center justify-center play-icon">
+                                    <div class="ml-0.5 w-0 h-0 border-l-[10px] border-l-blue-600 border-y-[6px] border-y-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="opt-video-frame p-2">
+                            <div class="w-full rounded-[20px] bg-white border border-dashed border-slate-300 relative flex items-center justify-center video-placeholder aspect-[9/16]">
+                                <div class="w-10 h-10 rounded-full border-2 border-blue-500 flex items-center justify-center play-icon">
+                                    <div class="ml-0.5 w-0 h-0 border-l-[10px] border-l-blue-600 border-y-[6px] border-y-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="opt-video-frame p-2">
+                            <div class="w-full rounded-[20px] bg-white border border-dashed border-slate-300 relative flex items-center justify-center video-placeholder aspect-[9/16]">
+                                <div class="w-10 h-10 rounded-full border-2 border-blue-500 flex items-center justify-center play-icon">
+                                    <div class="ml-0.5 w-0 h-0 border-l-[10px] border-l-blue-600 border-y-[6px] border-y-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="flex flex-col gap-4">
+                    <article class="opt-card p-6 flex flex-col gap-4">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider">Growth Metrics</h3>
+                        <dl class="text-xs text-gray-600 space-y-3">
+                            <div class="flex justify-between border-b border-gray-50 pb-2">
+                                <dt>Views</dt>
+                                <dd class="font-bold text-blue-900">+850K</dd>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-50 pb-2">
+                                <dt>Leads Generated</dt>
+                                <dd class="font-bold text-blue-900">450+</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt>Channel</dt>
+                                <dd class="font-bold text-gray-900">Instagram / Reels</dd>
+                            </div>
+                        </dl>
+                    </article>
+                    <article class="opt-card p-6 flex flex-col gap-3 bg-blue-50 border border-blue-100">
+                        <h3 class="text-sm font-bold text-blue-900">Strategy</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Positioned as an authority in kitchen renovations. We used "before vs after" transitions and educational overlays to drive high-intent leads directly to DMs.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center py-12 reveal">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Ready to get these results?</h3>
+            <a href="index.html#Calender" class="inline-block bg-gradient-to-r from-blue-900 to-blue-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition-transform">
+                Book Your Strategy Call
+            </a>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
