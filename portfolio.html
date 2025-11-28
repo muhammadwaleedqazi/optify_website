@@ -202,12 +202,14 @@
         </div>
       </article>
       <article class="opt-card p-4 metrics-placeholder min-h-[120px]">
-        <h3 class="text-sm font-bold text-[#111827] mb-3">Growth Metrics</h3>
-       
-        <div class="metrics-content hidden">
-          <!-- Metrics will be dynamically inserted here -->
-        </div>
-      </article>
+  <h3 class="text-sm font-bold text-[#111827] mb-3">Growth Metrics</h3>
+  <div class="default-content min-h-[60px]">
+    <!-- Empty but takes same space -->
+  </div>
+  <div class="metrics-content hidden">
+    <!-- Metrics will be dynamically inserted here -->
+  </div>
+</article>
     </div>
     
     <!-- Video 2 -->
@@ -256,10 +258,10 @@
           </div>
         </div>
       </article>
-   <article class="opt-card p-4 metrics-placeholder min-h-[120px]">
+<article class="opt-card p-4 metrics-placeholder min-h-[120px]">
   <h3 class="text-sm font-bold text-[#111827] mb-3">Growth Metrics</h3>
-  <div class="default-content min-h-[60px] flex items-center justify-center">
-    <!-- Empty but takes same space -->
+  <div class="default-content">
+    <!-- Empty - no min-height needed -->
   </div>
   <div class="metrics-content hidden">
     <!-- Metrics will be dynamically inserted here -->
@@ -339,10 +341,10 @@
 
     <!-- Desktop Metrics & Strategy -->
     <div class="flex flex-col gap-4">
-     <article class="opt-card p-5 metrics-placeholder min-h-[200px]">
+   <article class="opt-card p-5 metrics-placeholder min-h-[250px]">
   <h3 class="text-sm font-bold text-[#111827] uppercase tracking-wide mb-3">Growth Metrics</h3>
-  <div class="default-content min-h-[120px] flex items-center justify-center">
-    <!-- Empty but takes same space -->
+  <div class="default-content">
+    <!-- Empty - no min-height needed -->
   </div>
   <div class="metrics-content hidden">
     <!-- Metrics will be dynamically inserted here -->
@@ -1232,99 +1234,91 @@
         });
       }
 
-      function addVideoMetrics(container, videoContainer) {
-        const views = videoContainer.getAttribute('data-views');
-        const followers = videoContainer.getAttribute('data-followers');
-        const likes = videoContainer.getAttribute('data-likes');
-        
-        const isDesktop = container.closest('.opt-card')?.classList.contains('p-5');
-        
-        if (isDesktop) {
-          // Desktop layout - with consistent height
-          container.innerHTML = `
-            <div class="min-h-[120px]">
-              <dl class="text-xs text-[#4b5563] space-y-3">
-                <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <div>
-                    <dt class="font-medium text-gray-700">Views</dt>
-                    <dd class="font-bold text-[#111827] text-lg">${views}</dd>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <div>
-                    <dt class="font-medium text-gray-700">Followers</dt>
-                    <dd class="font-bold text-[#111827] text-lg">+${followers}</dd>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center">
-                  <div>
-                    <dt class="font-medium text-gray-700">Likes</dt>
-                    <dd class="font-bold text-[#111827] text-lg">${likes}</dd>
-                  </div>
-                </div>
-              </dl>
-            </div>
-          `;
-        } else {
-          // Mobile layout - with consistent height
-          container.innerHTML = `
-            <div class="min-h-[60px]">
-              <dl class="text-[11px] text-[#4b5563] space-y-1.5">
-                <div class="flex justify-between"><dt>Views</dt><dd class="font-bold text-[#111827]">${views}</dd></div>
-                <div class="flex justify-between"><dt>Followers</dt><dd class="font-bold text-[#111827]">+${followers}</dd></div>
-                <div class="flex justify-between"><dt>Likes</dt><dd class="font-bold text-[#111827]">${likes}</dd></div>
-              </dl>
-            </div>
-          `;
-        }
-      }
+     function addVideoMetrics(container, videoContainer) {
+  const views = videoContainer.getAttribute('data-views');
+  const followers = videoContainer.getAttribute('data-followers');
+  const likes = videoContainer.getAttribute('data-likes');
+  
+  const isDesktop = container.closest('.opt-card')?.classList.contains('p-5');
+  
+  if (isDesktop) {
+    // Desktop layout - WITHOUT extra wrapper div
+    container.innerHTML = `
+      <dl class="text-xs text-[#4b5563] space-y-3">
+        <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+          <div>
+            <dt class="font-medium text-gray-700">Views</dt>
+            <dd class="font-bold text-[#111827] text-lg">${views}</dd>
+          </div>
+        </div>
+        <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+          <div>
+            <dt class="font-medium text-gray-700">Followers</dt>
+            <dd class="font-bold text-[#111827] text-lg">+${followers}</dd>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div>
+            <dt class="font-medium text-gray-700">Likes</dt>
+            <dd class="font-bold text-[#111827] text-lg">${likes}</dd>
+          </div>
+        </div>
+      </dl>
+    `;
+  } else {
+    // Mobile layout - WITHOUT extra wrapper div
+    container.innerHTML = `
+      <dl class="text-[11px] text-[#4b5563] space-y-1.5">
+        <div class="flex justify-between"><dt>Views</dt><dd class="font-bold text-[#111827]">${views}</dd></div>
+        <div class="flex justify-between"><dt>Followers</dt><dd class="font-bold text-[#111827]">+${followers}</dd></div>
+        <div class="flex justify-between"><dt>Likes</dt><dd class="font-bold text-[#111827]">${likes}</dd></div>
+      </dl>
+    `;
+  }
+}
 
-      function addStoryMetrics(container, storyContainer) {
-        const views = storyContainer.getAttribute('data-views');
-        const clicks = storyContainer.getAttribute('data-clicks');
-        const channel = storyContainer.getAttribute('data-channel');
-        
-        const isDesktop = container.closest('.opt-card')?.classList.contains('p-5');
-        
-        if (isDesktop) {
-          // Desktop layout - with consistent height
-          container.innerHTML = `
-            <div class="min-h-[120px]">
-              <dl class="text-xs text-[#4b5563] space-y-3">
-                <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <div>
-                    <dt class="font-medium text-gray-700">Views</dt>
-                    <dd class="font-bold text-[#111827] text-lg">${views}</dd>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                  <div>
-                    <dt class="font-medium text-gray-700">Clicks</dt>
-                    <dd class="font-bold text-[#111827] text-lg">${clicks}</dd>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center">
-                  <div>
-                    <dt class="font-medium text-gray-700">Channel</dt>
-                    <dd class="font-bold text-[#111827] text-lg">${channel}</dd>
-                  </div>
-                </div>
-              </dl>
-            </div>
-          `;
-        } else {
-          // Mobile layout - with consistent height
-          container.innerHTML = `
-            <div class="min-h-[60px]">
-              <dl class="text-[11px] text-[#4b5563] space-y-1.5">
-                <div class="flex justify-between"><dt>Views</dt><dd class="font-bold text-[#111827]">${views}</dd></div>
-                <div class="flex justify-between"><dt>Clicks</dt><dd class="font-bold text-[#111827]">${clicks}</dd></div>
-                <div class="flex justify-between"><dt>Channel</dt><dd class="font-bold text-[#111827]">${channel}</dd></div>
-              </dl>
-            </div>
-          `;
-        }
-      }
+function addStoryMetrics(container, storyContainer) {
+  const views = storyContainer.getAttribute('data-views');
+  const clicks = storyContainer.getAttribute('data-clicks');
+  const channel = storyContainer.getAttribute('data-channel');
+  
+  const isDesktop = container.closest('.opt-card')?.classList.contains('p-5');
+  
+  if (isDesktop) {
+    // Desktop layout - WITHOUT extra wrapper div
+    container.innerHTML = `
+      <dl class="text-xs text-[#4b5563] space-y-3">
+        <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+          <div>
+            <dt class="font-medium text-gray-700">Views</dt>
+            <dd class="font-bold text-[#111827] text-lg">${views}</dd>
+          </div>
+        </div>
+        <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+          <div>
+            <dt class="font-medium text-gray-700">Clicks</dt>
+            <dd class="font-bold text-[#111827] text-lg">${clicks}</dd>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div>
+            <dt class="font-medium text-gray-700">Channel</dt>
+            <dd class="font-bold text-[#111827] text-lg">${channel}</dd>
+          </div>
+        </div>
+      </dl>
+    `;
+  } else {
+    // Mobile layout - WITHOUT extra wrapper div
+    container.innerHTML = `
+      <dl class="text-[11px] text-[#4b5563] space-y-1.5">
+        <div class="flex justify-between"><dt>Views</dt><dd class="font-bold text-[#111827]">${views}</dd></div>
+        <div class="flex justify-between"><dt>Clicks</dt><dd class="font-bold text-[#111827]">${clicks}</dd></div>
+        <div class="flex justify-between"><dt>Channel</dt><dd class="font-bold text-[#111827]">${channel}</dd></div>
+      </dl>
+    `;
+  }
+}
     });
 
     // Element SDK Configuration
