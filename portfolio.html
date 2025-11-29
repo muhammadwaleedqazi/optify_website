@@ -125,6 +125,22 @@
     .reveal-zoom.reveal-visible {
       transform: translateX(0) scale(1);
     }
+    /* --- LINK COLOR OVERRIDE --- */
+    /* Forces "View on..." links to use Theme Orange */
+    a.inline-flex.items-center.gap-2.font-bold {
+        color: #ea580c !important; /* Tailwind Orange-600 */
+        transition: all 0.2s ease;
+    }
+
+    a.inline-flex.items-center.gap-2.font-bold:hover {
+        color: #c2410c !important; /* Tailwind Orange-700 (Darker on hover) */
+        transform: translateY(-2px); /* Slight lift animation */
+    }
+
+    /* Ensures the SVG icon next to the text also turns orange */
+    a.inline-flex.items-center.gap-2.font-bold svg {
+        color: inherit !important;
+    }
   </style>
   
   <style>@view-transition { navigation: auto; }</style>
