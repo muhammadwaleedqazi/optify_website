@@ -81,42 +81,131 @@
     </style>
 </head>
 <body class="font-sans text-gray-800 antialiased selection:bg-blue-100 selection:text-blue-900">
-
-<nav class="fixed w-full z-50 glass-nav transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 h-12 md:h-20 flex justify-between items-center">
+<style>
+    /* Clean White Navbar */
+    .glass-nav {
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #f3f4f6;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+    }
+    
+    /* Mobile Menu Animation (Height Method - 100% Reliable) */
+    #mobile-menu {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+        transform-origin: top;
+    }
+    
+    /* When this class is added, menu opens */
+    #mobile-menu.open {
+        max-height: 500px; /* Large enough to fit content */
+        opacity: 1;
+        border-bottom: 1px solid #f3f4f6;
+    }
+</style>
+<nav id="navbar" class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-white/40 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-14 md:h-16 flex justify-between items-center">
         
-        <a href="#" class="flex items-center">
-            <img src="newlogo.png" alt="OptifyUp" class="h-6 md:h-10 w-auto"> 
+        <a href="#home" class="flex items-center group">
+            <img src="newlogo.png" alt="OptifyUp" class="h-7 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105"> 
         </a>
         
-        <div class="hidden md:flex space-x-8 items-center">
-            <a href="#services" class="text-gray-600 hover:text-blue-900 font-medium transition-colors">Services</a>
-            <a href="#results" class="text-gray-600 hover:text-blue-900 font-medium transition-colors">Results</a>
-            <!-- UPDATED: Now links to portfolio.html -->
-            <a href="portfolio.html" class="text-gray-600 hover:text-blue-900 font-medium transition-colors">Portfolio</a>
-            <a href="#Calender" class="px-5 py-2 bg-blue-900 text-white rounded-full font-semibold hover:bg-blue-800 transition-all active:scale-95 text-sm">
+        <div class="hidden md:flex items-center space-x-8 lg:space-x-10">
+            
+            <a href="#home" class="nav-link group relative text-xs lg:text-sm font-bold tracking-wide text-blue-900 transition-colors duration-300" data-section="home">
+                Home
+                <span class="active-dot absolute -bottom-2 left-1/2 w-1 h-1 bg-orange-500 rounded-full transform -translate-x-1/2 transition-all duration-300 opacity-100 scale-100"></span>
+            </a>
+
+            <a href="#services" class="nav-link group relative text-xs lg:text-sm font-medium tracking-wide text-gray-500 hover:text-blue-900 transition-colors duration-300" data-section="services">
+                Services
+                <span class="active-dot absolute -bottom-2 left-1/2 w-1 h-1 bg-orange-500 rounded-full transform -translate-x-1/2 transition-all duration-300 opacity-0 scale-0"></span>
+            </a>
+
+            <a href="#results" class="nav-link group relative text-xs lg:text-sm font-medium tracking-wide text-gray-500 hover:text-blue-900 transition-colors duration-300" data-section="results">
+                Results
+                <span class="active-dot absolute -bottom-2 left-1/2 w-1 h-1 bg-orange-500 rounded-full transform -translate-x-1/2 transition-all duration-300 opacity-0 scale-0"></span>
+            </a>
+
+            <a href="portfolio.html" class="relative text-xs lg:text-sm font-medium tracking-wide text-gray-500 hover:text-blue-900 transition-colors duration-200 group">
+                Portfolio
+                <span class="absolute -bottom-2 left-1/2 w-1 h-1 bg-blue-200 rounded-full transform -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform duration-200"></span>
+            </a>
+
+            <a href="#Calender" class="px-5 py-2 bg-blue-900 text-white rounded-full font-bold text-xs lg:text-sm shadow-lg shadow-blue-900/20 hover:bg-orange-600 hover:shadow-orange-500/20 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 ml-2">
                 Book Call
             </a>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-blue-900 focus:outline-none">
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-gray-500 hover:text-blue-900 focus:outline-none p-1.5 rounded-lg hover:bg-white/50">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
     </div>
+<div id="mobile-menu-container" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-gray-100 absolute w-full left-0 top-14 shadow-2xl z-40">
+        <div class="flex flex-col p-6 space-y-4 text-center">
+            
+            <div>
+                <span class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-900 font-bold text-sm border border-blue-100">
+                    Home
+                </span>
+            </div>
 
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 absolute w-full left-0 top-12 shadow-xl">
-        <div class="flex flex-col p-4 space-y-4 text-center">
-            <a href="#services" class="text-gray-600 hover:text-blue-900 font-medium py-2 border-b border-gray-50" onclick="toggleMenu()">Services</a>
-            <a href="#results" class="text-gray-600 hover:text-blue-900 font-medium py-2 border-b border-gray-50" onclick="toggleMenu()">Results</a>
-            <!-- UPDATED: Now links to portfolio.html -->
-            <a href="portfolio.html" class="text-gray-600 hover:text-blue-900 font-medium py-2 border-b border-gray-50" onclick="toggleMenu()">Portfolio</a>
-            <a href="#Calender" class="text-blue-900 font-bold py-2" onclick="toggleMenu()">Book a Free Call</a>
+            <a href="#services" onclick="closeMenu()" class="text-gray-500 hover:text-blue-900 font-medium text-sm transition-colors">Services</a>
+            <a href="#results" onclick="closeMenu()" class="text-gray-500 hover:text-blue-900 font-medium text-sm transition-colors">Results</a>
+            <a href="portfolio.html" class="text-gray-500 hover:text-blue-900 font-medium text-sm transition-colors">Portfolio</a>
+            
+            <div class="w-12 h-px bg-gray-100 mx-auto my-2"></div>
+            
+            <a href="#Calender" onclick="closeMenu()" class="inline-block px-8 py-2.5 bg-blue-900 text-white rounded-full font-bold text-sm shadow-md hover:bg-orange-600 transition-colors">
+                Book a Free Call
+            </a>
         </div>
     </div>
 </nav>
 
+<script>
+    // 1. Mobile Menu Logic
+    function toggleMobileMenu() { document.getElementById('mobile-menu-container').classList.toggle('hidden'); }
+    function closeMenu() { document.getElementById('mobile-menu-container').classList.add('hidden'); }
+    document.addEventListener('click', (e) => {
+        const menu = document.getElementById('mobile-menu-container'), btn = document.getElementById('mobile-menu-btn');
+        if (!menu.contains(e.target) && !btn.contains(e.target)) menu.classList.add('hidden');
+    });
+
+    // 2. ScrollSpy: Moves the Orange Dot automatically
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section'); // Assumes your sections have ids like #home, #services
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 150) { // -150 offset for header height
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            // Reset all dots
+            const dot = link.querySelector('.active-dot');
+            link.classList.remove('text-blue-900', 'font-bold');
+            link.classList.add('text-gray-500', 'font-medium');
+            if(dot) { dot.classList.remove('opacity-100', 'scale-100'); dot.classList.add('opacity-0', 'scale-0'); }
+            
+            // Activate current dot
+            if (link.getAttribute('data-section') === current) {
+                link.classList.remove('text-gray-500', 'font-medium');
+                link.classList.add('text-blue-900', 'font-bold');
+                if(dot) { dot.classList.remove('opacity-0', 'scale-0'); dot.classList.add('opacity-100', 'scale-100'); }
+            }
+        });
+    });
+</script>
 <section id="home" class="hero-gradient flex flex-col items-center pt-28 pb-12 px-6">
     <div class="max-w-6xl mx-auto text-center reveal active">
         
@@ -804,7 +893,82 @@
             });
         });
     });
+    // 1. Mobile Menu Toggle & Click Outside Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            // Toggle Menu
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent click from bubbling to document
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close when clicking links inside
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Close when clicking OUTSIDE the menu
+            document.addEventListener('click', (e) => {
+                // If menu is open AND click target is NOT the menu AND NOT the button
+                if (!mobileMenu.classList.contains('hidden') && 
+                    !mobileMenu.contains(e.target) && 
+                    !menuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
+    });
 </script>
+<!-- Back to Top Button -->
+<button id="backToTop" 
+    class="fixed bottom-8 right-8 z-[100] p-3.5 rounded-full bg-blue-900 text-white shadow-xl 
+           hover:bg-orange-600 hover:-translate-y-1 focus:outline-none transition-all duration-300 opacity-0 invisible"
+    title="Back to top"
+    style="transform: translateY(100px);">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+</button>
+<script>
+    // Back to Top Functionality
+const backToTopBtn = document.getElementById('backToTop');
+
+if (backToTopBtn) {
+    const toggleButton = () => {
+        if (window.scrollY > 400) {
+            backToTopBtn.style.transform = 'translateY(0)';
+            backToTopBtn.classList.remove('opacity-0', 'invisible');
+            backToTopBtn.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopBtn.style.transform = 'translateY(100px)';
+            backToTopBtn.classList.remove('opacity-100', 'visible');
+            backToTopBtn.classList.add('opacity-0', 'invisible');
+        }
+    };
+
+    // Listen for scroll events
+    window.addEventListener('scroll', toggleButton);
+    
+    // Initial check
+    toggleButton();
+
+    // Smooth scroll to top when clicked
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+</script>
+
+
 
 </body>
 </html>
