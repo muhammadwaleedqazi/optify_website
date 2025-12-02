@@ -85,12 +85,17 @@
             opacity: 1;
         }
 
+        /* Reveal Animation - The Cause of "White Screen" if JS fails */
         .reveal {
             transform: translateY(24px);
-            opacity: 0;
+            opacity: 0; 
             transition: opacity 700ms ease, transform 700ms ease, box-shadow 500ms ease;
         }
         .reveal-visible { opacity: 1; transform: translateY(0); }
+        
+        /* Force first section visible in case JS is slow */
+        #section-header { opacity: 1; transform: translateY(0); }
+
         .reveal-left { transform: translateX(-40px); }
         .reveal-right { transform: translateX(40px); }
         .reveal-zoom { transform: scale(0.96); }
@@ -120,106 +125,77 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        #backToTop {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-            padding: 0.875rem;
-            border-radius: 50%;
-            background: #1e3a8a;
-            color: white;
-            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
-            border: none;
-            cursor: pointer;
-            transform: translateY(100px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #backToTop.show { transform: translateY(0); opacity: 1; visibility: visible; }
-        #backToTop:hover {
-            background: #ea580c;
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.4);
-        }
         /* Compact Strategy Box - Desktop Only */
-@media (min-width: 1024px) {
-    .compact-strategy-box {
-        background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
-        border: 1px solid rgba(30, 58, 138, 0.1);
-        border-radius: 16px;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-        height: fit-content;
-    }
-    
-    .compact-strategy-box:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(30, 58, 138, 0.08);
-        border-color: rgba(30, 58, 138, 0.2);
-    }
-    
-    .compact-strategy-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 1rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 1px solid rgba(30, 58, 138, 0.08);
-    }
-    
-    .compact-strategy-dot {
-        width: 8px;
-        height: 8px;
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        border-radius: 50%;
-        flex-shrink: 0;
-    }
-    
-    .compact-strategy-title {
-        font-size: 1rem;
-        font-weight: 700;
-        color: #1e3a8a;
-        margin: 0;
-        letter-spacing: -0.01em;
-    }
-    
-    .compact-strategy-content {
-        font-size: 0.875rem;
-        line-height: 1.6;
-        color: #374151;
-        font-weight: 400;
-    }
-    
-    .compact-strategy-content p {
-        margin-bottom: 0.75rem;
-    }
-    
-    .compact-strategy-content p:last-child {
-        margin-bottom: 0;
-    }
-}
+        @media (min-width: 1024px) {
+            .compact-strategy-box {
+                background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+                border: 1px solid rgba(30, 58, 138, 0.1);
+                border-radius: 16px;
+                padding: 1.5rem;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+                height: fit-content;
+            }
+            
+            .compact-strategy-box:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(30, 58, 138, 0.08);
+                border-color: rgba(30, 58, 138, 0.2);
+            }
+            
+            .compact-strategy-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 1rem;
+                padding-bottom: 0.75rem;
+                border-bottom: 1px solid rgba(30, 58, 138, 0.08);
+            }
+            
+            .compact-strategy-dot {
+                width: 8px;
+                height: 8px;
+                background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+            
+            .compact-strategy-title {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #1e3a8a;
+                margin: 0;
+                letter-spacing: -0.01em;
+            }
+            
+            .compact-strategy-content {
+                font-size: 0.875rem;
+                line-height: 1.6;
+                color: #374151;
+                font-weight: 400;
+            }
+            
+            .compact-strategy-content p {
+                margin-bottom: 0.75rem;
+            }
+            
+            .compact-strategy-content p:last-child {
+                margin-bottom: 0;
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 antialiased min-h-screen">
 
-<!-- Header -->
 <nav id="navbar" class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-white/40 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 h-14 md:h-16 flex justify-between items-center">
         
-        <!-- Logo -->
         <a href="index.html" class="flex items-center group">
             <img src="newlogo.png" alt="OptifyUp" class="h-7 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/40x40/1E3A8A/FFFFFF?text=OU'"> 
         </a>
         
-        <!-- Desktop Links -->
         <div class="hidden md:flex items-center space-x-8 lg:space-x-10">
             
             <a href="index.html" class="nav-link group relative text-xs lg:text-sm font-medium tracking-wide text-gray-500 hover:text-blue-900 transition-colors duration-300">
@@ -237,18 +213,16 @@
                 <span class="active-dot absolute -bottom-2 left-1/2 w-1 h-1 bg-orange-500 rounded-full transform -translate-x-1/2 transition-all duration-300 opacity-0 scale-0 group-hover:scale-100 group-hover:opacity-100"></span>
             </a>
 
-            <!-- Active Portfolio Link -->
             <a href="#" class="relative text-xs lg:text-sm font-bold tracking-wide text-blue-900 transition-colors duration-200">
                 Portfolio
                 <span class="absolute -bottom-2 left-1/2 w-1 h-1 bg-orange-500 rounded-full transform -translate-x-1/2 opacity-100 scale-100"></span>
             </a>
 
-            <a href="index.html#Calender" class="px-5 py-2 bg-blue-900 text-white rounded-full font-bold text-xs lg:text-sm shadow-lg shadow-blue-900/20 hover:bg-orange-600 hover:shadow-orange-500/20 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 ml-2">
+            <a href="#Calender" class="px-5 py-2 bg-blue-900 text-white rounded-full font-bold text-xs lg:text-sm shadow-lg shadow-blue-900/20 hover:bg-orange-600 hover:shadow-orange-500/20 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 ml-2">
                 Book Call
             </a>
         </div>
 
-        <!-- Mobile Menu Button (Small & Sleek) -->
         <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-gray-500 hover:text-blue-900 focus:outline-none p-1.5 rounded-lg hover:bg-white/50 transition-colors duration-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -256,7 +230,6 @@
         </button>
     </div>
 
-    <!-- Mobile Menu Container -->
     <div id="mobile-menu-container" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-gray-100 absolute w-full left-0 top-14 shadow-2xl z-40 transition-all duration-300">
         <div class="flex flex-col p-6 space-y-4 text-center">
             
@@ -272,21 +245,16 @@
             
             <div class="w-12 h-px bg-gray-100 mx-auto my-2"></div>
             
-            <a href="index.html#Calender" class="inline-block px-8 py-2.5 bg-blue-900 text-white rounded-full font-bold text-sm shadow-md hover:bg-orange-600 transition-colors">
+            <a href="calendar.html" class="inline-block px-8 py-2.5 bg-blue-900 text-white rounded-full font-bold text-sm shadow-md hover:bg-orange-600 transition-colors">
                 Book a Free Call
             </a>
         </div>
     </div>
 </nav>
 
-<!-- Add this script near the end of your body tag if not present -->
-
-
-<!-- Main Content -->
 <main class="max-w-6xl mx-auto px-4 sm:px-5 pt-20 pb-16 flex flex-col gap-12 md:gap-20" aria-label="OptifyUp portfolio content">
     
-    <!-- Section 1: Header -->
-     <section id="section-header" class="py-8 px-1 text-center reveal active">
+    <section id="section-header" class="py-8 px-1 text-center reveal-visible">
         <div class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 px-4 py-1.5 mb-6 shadow-lg">
             <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
             <span class="text-[11px] uppercase tracking-[0.24em] text-white font-semibold">OptifyUp Portfolio</span>
@@ -301,7 +269,6 @@
         </p>
     </section>
 
-    <!-- Section 9: ValueTechStrategies (VTS) -->
     <section id="section-vts" class="py-8 px-1 reveal reveal-up">
         
         <div class="flex flex-col gap-2 mb-10 pb-4 border-b border-gray-100 text-center lg:text-left">
@@ -338,8 +305,7 @@
         </article>
     </section> 
 
-     <!-- Section 8: ScaleWithConnor -->
-    <section id="section-scale" class="py-8 px-1 reveal reveal-right">
+     <section id="section-scale" class="py-8 px-1 reveal reveal-right">
         
         <div class="flex flex-col gap-2 mb-6 text-center lg:text-left">
             <p class="text-xs uppercase tracking-[0.28em] text-[#f97316] font-bold">Ad Creative</p>
@@ -353,7 +319,6 @@
         </div>
 
         <article class="glow-card p-6 md:p-8 border border-gray-100">
-            <!-- Centered single video container -->
             <div class="w-full max-w-sm mx-auto">
                 
                 <div class="opt-video-frame p-2.5">
@@ -372,19 +337,16 @@
             </div>
         </article>
     </section>
-    <!-- Section 2: Laxdripofficial -->
     <section id="section-laxdrip" class="py-8 px-1 reveal">
         <div class="flex flex-col gap-2 mb-10 pb-4 border-b border-gray-100 text-center lg:text-left">
             <p class="text-xs uppercase tracking-[0.28em] text-[#f97316] font-bold">Client Case Study</p>
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Laxdripofficial</h2>
         </div>
 
-        <!-- Mobile & Tablet Layout -->
         <div class="flex flex-col lg:hidden gap-8">
             <article class="glow-card p-6 border border-gray-100">
                 <div class="w-full max-w-sm mx-auto flex flex-col gap-8">
                     
-                    <!-- Video 1 Mobile -->
                     <div class="flex flex-col gap-4">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -407,7 +369,6 @@
                         <div class="text-center"><a href="https://www.instagram.com/reel/C5317KXtUKV/" target="_blank" class="mobile-link-accent text-sm font-bold">View on Instagram</a></div>
                     </div>
 
-                    <!-- Video 2 Mobile (Added Metrics) -->
                     <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -430,7 +391,6 @@
                         <div class="text-center"><a href="https://www.instagram.com/reel/DHrAhk5o2ka/" target="_blank" class="mobile-link-accent text-sm font-bold">View on Instagram</a></div>
                     </div>
 
-                    <!-- Story Mobile (Added Metrics) -->
                     <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
                         <div class="opt-video-frame p-3">
                             <div class="image-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -458,7 +418,6 @@
             </article>
         </div>
 
-        <!-- Desktop Layout -->
         <div class="hidden lg:grid lg:grid-cols-[1.6fr,1fr] opt-grid-gap">
             <article class="glow-card p-6 flex flex-col gap-4">
                 <div class="grid grid-cols-3 gap-4">
@@ -494,7 +453,6 @@
                                 <img src="store.png" alt="Instagram Story" class="w-full h-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1080x1920/1f2937/ffffff?text=Story+Placeholder'">
                             </div>
                         </div>
-                        <!-- Removed "IG Story" text below image as requested -->
                     </div>
                 </div>
             </article>
@@ -536,18 +494,15 @@
         </div>
     </section>
     
-    <!-- Section 3: RatingKitchenCabinets -->
     <section id="section-rating" class="py-8 px-1 reveal reveal-left">
         <div class="flex flex-col gap-2 mb-10 pb-4 border-b border-gray-100 text-center lg:text-left">
             <p class="text-xs uppercase tracking-[0.28em] text-[#f97316] font-bold">Client Case Study</p>
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">RatingKitchenCabinets</h2>
         </div>
 
-        <!-- Mobile & Tablet Layout (COMPLETE) -->
         <div class="flex flex-col lg:hidden gap-8">
             <article class="glow-card p-6 border border-gray-100">
                 <div class="w-full max-w-sm mx-auto flex flex-col gap-8">
-                    <!-- Video 1 -->
                     <div class="flex flex-col gap-4">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -570,12 +525,11 @@
                         <div class="text-center"><a href="https://www.tiktok.com/@ratingkitchencabinets/video/7538828154367151368" target="_blank" class="mobile-link-accent text-sm font-bold">View on TikTok</a></div>
                     </div>
 
-                    <!-- Video 2 (Added Metrics) -->
                     <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
                                 <video class="w-full h-full object-cover" preload="none" loading="lazy" poster="thumbnailrvid2.png" onclick="togglePlayPause(this)">
-                                    <source src="rvideo2.mov" type="video/mp4" onerror="this.onerror=null;this.src='https://placehold.co/1080x1920/1f2937/ffffff?text=Video+2'">
+                                    <source src="rvideo2.mp4" type="video/mp4" onerror="this.onerror=null;this.src='https://placehold.co/1080x1920/1f2937/ffffff?text=Video+2'">
                                 </video>
                                 <div class="video-overlay absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer" onclick="playVideo(this)">
                                     <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
@@ -593,7 +547,6 @@
                         <div class="text-center"><a href="https://www.instagram.com/reel/DMkxKzvi8L5/" target="_blank" class="mobile-link-accent text-sm font-bold">View on Instagram</a></div>
                     </div>
 
-                    <!-- Video 3 (Added Metrics) -->
                     <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -626,7 +579,6 @@
             </article>
         </div>
         
-        <!-- Desktop Layout -->
         <div class="hidden lg:grid lg:grid-cols-[1.6fr,1fr] opt-grid-gap">
             <article class="glow-card p-6 flex flex-col gap-4">
                 <div class="grid grid-cols-3 gap-4">
@@ -707,18 +659,15 @@
             </div>
         </div>
     </section>
-  <!-- Section 4: BattleLax -->
-    <section id="section-battle" class="py-8 px-1 reveal reveal-right">
+  <section id="section-battle" class="py-8 px-1 reveal reveal-right">
         <div class="flex flex-col gap-2 mb-10 pb-4 border-b border-gray-100 text-center lg:text-left">
             <p class="text-xs uppercase tracking-[0.28em] text-[#f97316] font-bold">Client Case Study</p>
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">BattleLax</h2>
         </div>
 
-        <!-- Mobile & Tablet Layout -->
         <div class="flex flex-col lg:hidden gap-8">
             <article class="glow-card p-6 border border-gray-100">
                 <div class="w-full max-w-sm mx-auto flex flex-col gap-8">
-                    <!-- Video 1 -->
                     <div class="flex flex-col gap-4">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -732,7 +681,6 @@
                         </div>
                     </div>
 
-                    <!-- Video 2 -->
                     <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -756,7 +704,6 @@
             </article>
         </div>
         
-        <!-- Desktop Layout -->
         <div class="hidden lg:grid lg:grid-cols-[1.6fr,1fr] opt-grid-gap">
             <article class="glow-card p-6 flex flex-col gap-4">
                 <div class="grid grid-cols-2 gap-4">
@@ -789,8 +736,7 @@
 
 
             <div class="flex flex-col justify-center h-full">
-                <!-- Removed Metrics Card -->
-             <article class="compact-strategy-box">
+                <article class="compact-strategy-box">
     <div class="compact-strategy-header">
         <span class="compact-strategy-dot"></span>
         <h3 class="compact-strategy-title">Strategy</h3>
@@ -805,18 +751,15 @@
         </div>
     </section>
     
-    <!-- Section 5: Isid.insulation.drywall -->
     <section id="section-isid" class="py-8 px-1 reveal reveal-left">
         <div class="flex flex-col gap-2 mb-10 pb-4 border-b border-gray-100 text-center lg:text-left">
             <p class="text-xs uppercase tracking-[0.28em] text-[#f97316] font-bold">Client Case Study</p>
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Isid.insulation.drywall</h2>
         </div>
 
-        <!-- Mobile & Tablet Layout (COMPLETE) -->
         <div class="flex flex-col lg:hidden gap-8">
             <article class="glow-card p-6 border border-gray-100">
                 <div class="w-full max-w-sm mx-auto flex flex-col gap-8">
-                    <!-- Video 1 -->
                     <div class="flex flex-col gap-4">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -839,7 +782,6 @@
                         <div class="text-center"><a href="https://www.instagram.com/reel/DFV5xEHCYCE/" target="_blank" class="mobile-link-accent text-sm font-bold">View on Instagram</a></div>
                     </div>
 
-                    <!-- Video 2 (Added Metrics) -->
                     <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -862,7 +804,6 @@
                         <div class="text-center"><a href="https://www.instagram.com/reel/DHBwgmct3KJ/" target="_blank" class="mobile-link-accent text-sm font-bold">View on Instagram</a></div>
                     </div>
 
-                    <!-- Video 3 (Added Metrics) -->
                     <div class="flex flex-col gap-4 border-t border-gray-100 pt-8">
                         <div class="opt-video-frame p-3">
                             <div class="video-container w-full bg-gray-900 rounded-[18px] overflow-hidden relative aspect-[9/16]">
@@ -882,8 +823,7 @@
                                 <div class="px-1"><div class="text-lg font-extrabold text-gray-900 count-up">700</div><div class="text-[10px] font-bold text-gray-500 uppercase">Likes</div></div>
                             </div>
                         </div>
-                        <!-- Removed "No Direct Link" text as requested -->
-                    </div>
+                        </div>
                 </div>
             </article>
             
@@ -895,7 +835,6 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
             </article>
         </div>
         
-        <!-- Desktop Layout -->
         <div class="hidden lg:grid lg:grid-cols-[1.6fr,1fr] opt-grid-gap">
             <article class="glow-card p-6 flex flex-col gap-4">
                 <div class="grid grid-cols-3 gap-4">
@@ -936,8 +875,7 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
                                 </div>
                             </div>
                         </div>
-                         <!-- Removed "No Direct Link" text as requested -->
-                    </div>
+                         </div>
                 </div>
             </article>
 
@@ -978,7 +916,6 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
         </div>
     </section>
 
-    <!-- Section 6: One-Time Graphic Project #1 -->
     <section id="section-graphics-1" class="py-8 px-1 reveal reveal-zoom" aria-label="One-time graphic project 1">
         
         <div class="flex flex-col gap-2 mb-6 text-center lg:text-left">
@@ -1011,7 +948,6 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
         </article>
     </section>
 
-    <!-- Section 7: One-Time Graphic Project #2 (Carousel) -->
     <section id="section-graphics-2" class="py-8 px-1 reveal reveal-left" aria-label="Carousel graphics project">
         
         <div class="flex flex-col gap-2 mb-6 text-center lg:text-left">
@@ -1060,9 +996,7 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
     </section>
 
 
-    <!-- Section 10: ChamberlandCedar -->
-   <!-- Section 10: ChamberlandCedar -->
-<section id="section-chamber" class="py-8 px-1 reveal reveal-up">
+    <section id="section-chamber" class="py-8 px-1 reveal reveal-up">
     
     <div class="flex flex-col gap-2 mb-6 text-center lg:text-left">
         <p class="text-xs uppercase tracking-[0.28em] text-[#f97316] font-bold">Client Work</p>
@@ -1089,7 +1023,6 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
                 </div>
                 
                 <div class="opt-video-frame p-2 bg-gray-50 rounded-[24px] border border-gray-100 max-w-sm mx-auto lg:max-w-full">
-                    <!-- CHANGED: aspect-[9/16] to aspect-square for 1:1 ratio -->
                     <div class="video-container w-full bg-gray-900 rounded-[20px] overflow-hidden relative aspect-square shadow-inner group">
                         <video class="w-full h-full object-cover" preload="none" loading="lazy" poster="thumbnailccvid.png" onclick="togglePlayPause(this)">
                             <source src="ccvideo1.mp4" type="video/mp4" onerror="this.onerror=null;this.src='https://placehold.co/1080x1080/1f2937/ffffff?text=CC+Video+Placeholder'">
@@ -1122,10 +1055,8 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
     </article>
 </section>
 
-<!-- Enhanced Carousel Modal -->
 <div id="carouselModal" class="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
     <div class="relative bg-white rounded-3xl shadow-2xl max-w-6xl w-full mx-auto overflow-hidden max-h-[90vh] flex flex-col">
-        <!-- Header -->
         <div class="flex items-center justify-between p-6 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
             <div>
                 <h3 class="text-xl font-bold text-gray-900" id="carouselTitle">Carousel Slides</h3>
@@ -1138,14 +1069,11 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
             </button>
         </div>
         
-        <!-- Carousel Content -->
         <div class="flex-1 overflow-y-auto p-8">
             <div id="carouselContent" class="grid gap-6 max-w-4xl mx-auto">
-                <!-- Slides will be dynamically inserted here -->
-            </div>
+                </div>
         </div>
         
-        <!-- Footer -->
         <div class="p-4 border-t border-gray-100 bg-gray-50/80 backdrop-blur-sm">
             <div class="flex justify-between items-center text-sm text-gray-500">
                 <span>Click outside or press ESC to close</span>
@@ -1154,8 +1082,7 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
         </div>
     </div>
 </div>
-<!-- Final Call to Action -->
-    <section id="section-cta" class="py-16 px-6 text-center reveal">
+<section id="section-cta" class="py-16 px-6 text-center reveal">
         <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-50 to-white rounded-3xl p-10 md:p-14 border border-blue-100 shadow-lg">
             <h2 class="text-3xl md:text-4xl font-bold text-[#111827] mb-4 tracking-tight">
                 Ready to achieve similar results?
@@ -1163,7 +1090,7 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
             <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                 Let's discuss a custom strategy to help you grow your brand on social media.
             </p>
-            <a href="index.html#Calender" class="inline-block px-10 py-4 bg-[#1e3a8a] text-white rounded-full font-bold text-lg shadow-xl hover:bg-[#ea580c] hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-1 active:scale-95">
+            <a href="calendar.html" class="inline-block px-10 py-4 bg-[#1e3a8a] text-white rounded-full font-bold text-lg shadow-xl hover:bg-[#ea580c] hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-1 active:scale-95">
                 Book a Free Call
             </a>
         </div>
@@ -1171,7 +1098,6 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
 
 </main>
 
-<!-- Footer -->
 <footer class="py-12 px-6 bg-white border-t border-gray-100 mt-12">
     <div class="max-w-4xl mx-auto text-center reveal reveal-visible">
         <div class="mb-4">
@@ -1208,12 +1134,73 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
     </div>
 </footer>
 
-<!-- Back to Top Button -->
-<button id="backToTop" aria-label="Back to top">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<button id="backToTop" 
+    class="fixed bottom-24 right-6 md:bottom-28 md:right-10 z-30 p-3 rounded-full bg-blue-900 text-white shadow-lg border border-white/20 hover:bg-orange-600 hover:-translate-y-1 focus:outline-none transition-all duration-300 opacity-0 invisible"
+    title="Back to top"
+    style="transform: translateY(20px);"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
 </button>
+
+<div id="whatsapp-widget" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 flex flex-col items-end pointer-events-none">
+    
+    <div id="whatsapp-chat-box" class="pointer-events-auto mb-4 w-[280px] md:w-[340px] bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 origin-bottom-right transform scale-0 opacity-0 border border-gray-100 ring-1 ring-black/5">
+        <div class="bg-[#075E54] p-4 flex items-center justify-between text-white shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                    </div>
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 border-2 border-[#075E54] rounded-full"></span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm">OptifyUp Support</h3>
+                    <p class="text-[10px] text-white/80 leading-tight">Typically replies in 5m</p>
+                </div>
+            </div>
+            <button onclick="toggleWhatsApp()" class="text-white/70 hover:text-white transition-colors p-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <div class="bg-[#efe7dd] p-4 h-64 overflow-y-auto relative" style="background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); background-blend-mode: overlay;">
+            <div class="relative z-10 space-y-4">
+                <div class="flex items-start gap-2">
+                     <div class="bg-white p-3 rounded-r-lg rounded-bl-lg text-[13px] text-gray-800 shadow-sm max-w-[85%] leading-relaxed relative">
+                        <span class="block text-[#075E54] font-bold text-[10px] mb-0.5">OptifyUp</span>
+                        <p>Hi there! 👋 <br>Looking to grow your brand? Let us know how we can help!</p>
+                        <span class="text-[9px] text-gray-400 block text-right mt-1">Just now</span>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 bg-gray-50 border-t border-gray-100 flex items-center gap-2">
+            <input type="text" id="whatsapp-input" placeholder="Type a message..." class="flex-1 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:border-transparent transition-all" onkeypress="handleEnter(event)">
+            <button onclick="sendToWhatsApp()" class="p-2 bg-[#075E54] text-white rounded-full hover:bg-[#128C7E] transition-all transform active:scale-95 shadow-md">
+                <svg class="w-5 h-5 translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="relative group pointer-events-auto">
+        <span class="absolute right-[110%] top-1/2 -translate-y-1/2 bg-white text-gray-800 text-sm font-bold px-3 py-1.5 rounded-lg shadow-md border border-gray-100 transition-all duration-300 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 pointer-events-none whitespace-nowrap hidden md:block">
+            Chat with us
+        </span>
+
+        <button onclick="toggleWhatsApp()" 
+                class="relative flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:bg-[#20bd5a] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 z-50">
+            
+            <span class="absolute -top-1 -right-1 flex h-4 w-4 z-50">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-[9px] font-bold text-white items-center justify-center">1</span>
+            </span>
+
+            <svg id="wa-icon-open" class="w-8 h-8 text-white transition-all duration-300 transform group-hover:scale-110 absolute" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <svg id="wa-icon-close" class="w-6 h-6 text-white transition-all duration-300 transform scale-0 opacity-0 absolute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+    </div>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1268,9 +1255,15 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
         if (backToTopBtn) {
             const toggleButton = () => {
                 if (window.scrollY > 400) {
-                    backToTopBtn.classList.add('show');
+                    // Show button: Reset transform and opacity
+                    backToTopBtn.style.transform = 'translateY(0)';
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
                 } else {
-                    backToTopBtn.classList.remove('show');
+                    // Hide button: Move down slightly and fade out
+                    backToTopBtn.style.transform = 'translateY(20px)';
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
                 }
             };
 
@@ -1504,87 +1497,8 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
             }
         });
     });
-</script>
-<!-- WhatsApp Floating Widget (Right Side - Stacked) -->
-<div id="whatsapp-widget" class="fixed bottom-24 right-6 md:right-8 z-[999] font-sans flex flex-col items-end">
-    
-    <!-- Chat Box (Hidden by default) -->
-    <div id="whatsapp-chat-box" class="mb-4 w-[300px] md:w-[340px] bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 origin-bottom-right transform scale-0 opacity-0 border border-gray-100 ring-1 ring-black/5">
-        <!-- Header -->
-        <div class="bg-[#075E54] p-4 flex items-center justify-between text-white shadow-sm">
-            <div class="flex items-center gap-3">
-                <div class="relative">
-                    <!-- Support Avatar -->
-                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-                    </div>
-                    <!-- Online Status Dot -->
-                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 border-2 border-[#075E54] rounded-full"></span>
-                </div>
-                <div>
-                    <h3 class="font-bold text-sm">OptifyUp Support</h3>
-                    <p class="text-[10px] text-white/80 leading-tight">Typically replies within an hour</p>
-                </div>
-            </div>
-            <!-- Close Chat Button -->
-            <button onclick="toggleWhatsApp()" class="text-white/70 hover:text-white transition-colors p-1 rounded-md hover:bg-white/10">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
 
-        <!-- Chat Body -->
-        <div class="bg-[#efe7dd] p-4 h-60 overflow-y-auto relative" style="background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); background-blend-mode: overlay;">
-            <div class="relative z-10 space-y-4">
-                <!-- Admin Message -->
-                <div class="flex items-start gap-2">
-                     <div class="bg-white p-3 rounded-r-lg rounded-bl-lg text-[13px] text-gray-800 shadow-sm max-w-[85%] leading-relaxed relative">
-                        <span class="block text-[#075E54] font-bold text-[10px] mb-0.5">OptifyUp</span>
-                        <p>Hi there! 👋 <br>How can we help you today?</p>
-                        <span class="text-[9px] text-gray-400 block text-right mt-1">Just now</span>
-                        <!-- Message Tail -->
-                        <svg class="absolute top-0 -left-2 w-3 h-3 text-white" fill="currentColor" viewBox="0 0 10 10"><path d="M10 0v10L0 0h10z"/></svg>
-                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Input Area -->
-        <div class="p-3 bg-gray-50 border-t border-gray-100 flex items-center gap-2">
-            <input type="text" id="whatsapp-input" placeholder="Type your message..." class="flex-1 bg-white border border-gray-200 rounded-full px-4 py-2.5 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:border-transparent shadow-sm transition-all" onkeypress="handleEnter(event)">
-            <button onclick="sendToWhatsApp()" class="p-2.5 bg-[#075E54] text-white rounded-full hover:bg-[#128C7E] transition-all shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 flex-shrink-0">
-                <svg class="w-5 h-5 translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-            </button>
-        </div>
-    </div>
-
-    <!-- Floating Launcher Button Container -->
-    <div class="relative group">
-        <!-- Hover Label (Slides out to the left) -->
-        <span class="absolute right-[110%] top-1/2 -translate-y-1/2 bg-white text-gray-800 text-sm font-bold px-3 py-1.5 rounded-lg shadow-md border border-gray-100 transition-all duration-300 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 pointer-events-none whitespace-nowrap hidden md:block">
-            Chat with us
-        </span>
-
-        <button onclick="toggleWhatsApp()" 
-                class="relative flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:bg-[#20bd5a] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 z-50"
-                aria-label="Chat on WhatsApp">
-                
-            <!-- Notification Dot -->
-            <span class="absolute -top-1 -right-1 flex h-4 w-4 z-50">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 border-2 border-white text-[9px] font-bold text-white items-center justify-center">1</span>
-            </span>
-
-            <!-- WhatsApp Icon (Rotates out) -->
-            <svg id="wa-icon-open" class="w-8 h-8 text-white transition-all duration-300 transform group-hover:scale-110 absolute" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            
-            <!-- Close Icon (Rotates in) -->
-            <svg id="wa-icon-close" class="w-6 h-6 text-white transition-all duration-300 transform scale-0 opacity-0 absolute" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-    </div>
-</div>
-
-<!-- WhatsApp Logic -->
-<script>
+    // WHATSAPP LOGIC
     function toggleWhatsApp() {
         const chatBox = document.getElementById('whatsapp-chat-box');
         const iconOpen = document.getElementById('wa-icon-open');
@@ -1608,9 +1522,8 @@ Most of our views and engagement came from Facebook, and we also used Instagram 
         const input = document.getElementById('whatsapp-input');
         const message = input.value.trim();
         if (message) {
-            const phone = '923243722677';
-            // Prefill text logic: Appends user message to your default text if needed, or sends just their message
-            const url = `https://wa.me/${phone}?text=${encodeURIComponent('Please contact here: ' + message)}`;
+            const phone = '923243722677'; 
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
             input.value = ''; 
             toggleWhatsApp();
